@@ -17,16 +17,15 @@
 // one is a lot shorter!
 // Execute `rustlings hint errors2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 use std::num::ParseIntError;
 
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let processing_fee = 1;
     let cost_per_item = 5;
-    let qty = item_quantity.parse::<i32>();
-
-    Ok(qty * cost_per_item + processing_fee)
+    // let qty = item_quantity.parse::<i32>().map(|i| i * cost_per_item + processing_fee); // 查文档看见的，对于新形势（Result）有新方法（map）
+    let qty = item_quantity.parse::<i32>()? * cost_per_item + processing_fee; // 从 hint 里得知的，Err 分支直接 return 了
+    return Ok(qty);
 }
 
 #[cfg(test)]
