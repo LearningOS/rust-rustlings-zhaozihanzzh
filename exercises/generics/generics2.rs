@@ -3,14 +3,13 @@
 
 // Execute `rustlings hint generics2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
-struct Wrapper {
-    value: u32,
+struct Wrapper<T> {
+    value: T,
 }
 
-impl Wrapper {
-    pub fn new(value: u32) -> Self {
+impl<T> Wrapper<T> { // 为什么 impl 和 Wrapper 都要有个 <T> 呢？https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions 有提及，但还不完全明白
+    pub fn new(value: T) -> Self {
         Wrapper { value }
     }
 }

@@ -11,13 +11,18 @@
 // you can do this!
 // Execute `rustlings hint traits2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 //TODO: Add your code here
+impl AppendBar for Vec<String> {
+    fn append_bar(mut self) -> Self { // 这里签名和 trait 里的声明相比多了个 mut，好像 mut 是可以任加的，这与 const 不能乱去不同
+        self.push(String::from("Bar"));
+        self
+    }
+}
 
 #[cfg(test)]
 mod tests {
